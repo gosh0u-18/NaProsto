@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: #202b27;
+  background: #f5f7f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #276b51;
+  --muted: #748079;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+.topbar { height: 76px; max-width: 1160px; margin: auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: #26352e; text-decoration: none; font-weight: 700; letter-spacing: -.03em; }
+.brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; color: white; background: var(--green); font-family: Manrope, sans-serif; font-weight: 800; }
+.project-label { color: #78827d; font-size: 13px; }
+main { overflow: hidden; }
+.hero { max-width: 760px; margin: 0 auto; padding: 65px 24px 76px; text-align: center; }
+.eyebrow { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.hero > .eyebrow { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #62a985; box-shadow: 0 0 0 4px #e3eee7; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin: 19px 0 16px; font-family: Manrope, sans-serif; font-size: clamp(42px, 7vw, 66px); line-height: 1.1; letter-spacing: -.065em; font-weight: 700; }
+h1 span { color: var(--green); }
+.intro { max-width: 550px; margin: 0 auto; color: #69756f; font-size: 16px; line-height: 1.75; }
+.upload-card { margin-top: 38px; padding: 24px; text-align: left; background: #fff; border: 1px solid #e8ece8; border-radius: 18px; box-shadow: 0 14px 40px #20372b0c; }
+.card-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.step-label { margin: 0 0 6px; color: #86928b; font-size: 10px; font-weight: 700; letter-spacing: .13em; }
+.card-heading h2 { margin: 0; font: 700 18px Manrope, sans-serif; letter-spacing: -.03em; }
+.file-type { padding: 6px 9px; color: #a64040; background: #fff1ef; border-radius: 6px; font-size: 10px; font-weight: 700; }
+.dropzone { min-height: 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1.5px dashed #cbd7ce; border-radius: 12px; background: #fbfcfa; cursor: pointer; transition: border-color .2s, background .2s; }
+.dropzone:hover, .dropzone.dragging { border-color: var(--green); background: #f4faf6; }
+.upload-icon { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 12px; color: var(--green); background: #eaf3ed; border-radius: 12px; }
+.upload-icon svg { width: 23px; height: 23px; }
+.dropzone-title { font-size: 14px; font-weight: 600; }
+.dropzone-hint { margin-top: 4px; color: #89938d; font-size: 12px; }
+#pdf-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+.choose-button { margin-top: 14px; padding: 9px 14px; color: white; background: var(--green); border-radius: 7px; font-size: 12px; font-weight: 600; }
+.file-note { display: flex; align-items: center; gap: 7px; margin: 13px 0 0; color: #89938d; font-size: 11px; }
+.next-step { display: flex; align-items: flex-start; gap: 11px; margin: 18px auto 0; padding: 13px 16px; text-align: left; color: #58685f; background: #eaf1ec; border-radius: 10px; }
+.next-step p { margin: 0; font-size: 12px; line-height: 1.6; }
+.next-step strong { color: #365b47; }
+.sparkle { color: var(--green); font-size: 17px; }
+.how-it-works { padding: 67px 24px 74px; background: #fff; }
+.section-heading { max-width: 1104px; margin: 0 auto 26px; }
+.section-heading .eyebrow { margin-bottom: 8px; }
+.section-heading h2 { margin: 0; font: 700 27px Manrope, sans-serif; letter-spacing: -.05em; }
+.steps { max-width: 1104px; margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.step-card { position: relative; padding: 22px; border: 1px solid #e9eeea; border-radius: 13px; }
+.step-number { position: absolute; top: 19px; right: 20px; color: #c1cac4; font: 700 11px Manrope, sans-serif; }
+.step-icon { display: grid; place-items: center; width: 36px; height: 36px; margin-bottom: 17px; color: var(--green); background: #edf5ef; border-radius: 10px; font-size: 20px; }
+.step-card h3 { margin-bottom: 7px; font: 700 14px Manrope, sans-serif; }
+.step-card p { margin: 0; color: #7a857e; font-size: 12px; line-height: 1.6; }
+footer { max-width: 1160px; margin: auto; padding: 22px 28px; display: flex; justify-content: space-between; color: #89938d; font-size: 11px; }
+
+@media (max-width: 640px) {
+  .topbar { height: 64px; padding: 0 18px; }
+  .brand { font-size: 13px; }
+  .project-label { font-size: 10px; }
+  .hero { padding: 52px 18px 57px; }
+  .hero > .eyebrow { font-size: 9px; }
+  .intro { font-size: 14px; }
+  .upload-card { margin-top: 28px; padding: 17px; }
+  .dropzone { min-height: 175px; }
+  .how-it-works { padding: 48px 18px; }
+  .steps { grid-template-columns: 1fr; gap: 10px; }
+  .step-card { padding: 18px; }
+  .step-icon { margin-bottom: 11px; }
+  footer { padding: 19px 18px; font-size: 10px; }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f4" />
+    <meta name="description" content="Разбери ми документа — по-лесен начин да разбереш официалните документи." />
+    <title>Разбери ми документа</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Разбери ми документа — начало">
+        <span class="brand-mark" aria-hidden="true">Р</span>
+        <span>Разбери ми документа</span>
+      </a>
+      <span class="project-label">Проект за НОИТ 2027</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Официалните документи, обяснени просто</p>
+        <h1 id="page-title">По-малко чудене.<br /><span>Повече яснота.</span></h1>
+        <p class="intro">Качи официален документ и лесно открий какво се изисква, кои са важните срокове и какви задачи следват.</p>
+
+        <section class="upload-card" aria-labelledby="upload-title">
+          <div class="card-heading">
+            <div>
+              <p class="step-label">ПЪРВА СТЪПКА</p>
+              <h2 id="upload-title">Избери своя документ</h2>
+            </div>
+            <span class="file-type">PDF</span>
+          </div>
+
+          <label class="dropzone" for="pdf-file" id="dropzone">
+            <span class="upload-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="dropzone-title" id="file-prompt">Пусни PDF файла тук</span>
+            <span class="dropzone-hint">или избери от устройството си</span>
+            <input id="pdf-file" type="file" accept="application/pdf,.pdf" />
+            <span class="choose-button">Избери PDF файл</span>
+          </label>
+          <p class="file-note"><span aria-hidden="true">ⓘ</span> Само PDF файлове. Качването ще бъде добавено на следващ етап.</p>
+        </section>
+
+        <div class="next-step" role="status">
+          <span class="sparkle" aria-hidden="true">✳</span>
+          <p><strong>Това е начална версия.</strong> Истинското качване, анализът с AI и списъкът със задачи предстоят.</p>
+        </div>
+      </section>
+
+      <section class="how-it-works" aria-labelledby="how-title">
+        <div class="section-heading">
+          <p class="eyebrow">ЯСНО И ПОДРЕДЕНО</p>
+          <h2 id="how-title">Как ще работи?</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <span class="step-number">01</span>
+            <span class="step-icon" aria-hidden="true">↥</span>
+            <h3>Добавяш документ</h3>
+            <p>Избираш официален PDF файл от устройството си.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">02</span>
+            <span class="step-icon" aria-hidden="true">⌕</span>
+            <h3>Намираме важното</h3>
+            <p>Откриваме изискванията, сроковете и ключовите условия.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">03</span>
+            <span class="step-icon" aria-hidden="true">✓</span>
+            <h3>Получаваш план</h3>
+            <p>Виждаш обяснение на разбираем език и ясни следващи задачи.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>Разбери ми документа</span><span>Създадено за НОИТ 2027</span></footer>
+  </body>
+</html>

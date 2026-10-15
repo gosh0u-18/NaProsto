@@ -1,0 +1,13 @@
+{
+  "name": "razberi-mi-dokumenta",
+  "version": "1.0.0",
+  "description": "Начална версия на проекта Разбери ми документа за НОИТ 2027",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
