@@ -1,0 +1,16 @@
+{
+  "id": "/",
+  "name": "НаПросто",
+  "short_name": "НаПросто",
+  "description": "Документи, изисквания и срокове на разбираем български език.",
+  "lang": "bg",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#073bd7",
+  "theme_color": "#073bd7",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

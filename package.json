@@ -1,13 +1,28 @@
 {
-  "name": "razberi-mi-dokumenta",
+  "name": "naprosto",
   "version": "1.0.0",
-  "description": "Начална версия на проекта Разбери ми документа за НОИТ 2027",
+  "description": "Bulgarian document explanations, source verification and task lists.",
   "private": true,
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "node scripts/prepare-ocr.js",
+    "prepare:ocr": "node scripts/prepare-ocr.js",
+    "test": "node --test tests/*.test.js",
+    "test:basic": "node --test tests/actors.test.js tests/summary.test.js tests/partial-validation.test.js",
+    "check:release": "node scripts/check-release.js"
+  },
+  "engines": {
+    "node": ">=22.13.0 <23 || >=24"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "@tesseract.js-data/bul": "^1.0.0",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "ajv": "^8.20.0",
+    "express": "^5.1.0",
+    "multer": "^2.5.0",
+    "pdfjs-dist": "^6.4.299",
+    "sharp": "^0.35.5",
+    "tesseract.js": "^7.0.0"
   }
 }

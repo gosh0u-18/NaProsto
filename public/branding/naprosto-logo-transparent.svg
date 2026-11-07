@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="146" viewBox="0 0 620 146" fill="none">
+  <title>НаПросто — от документ към действие</title>
+  <path d="M78 12H24A14 14 0 0 0 10 26v94a14 14 0 0 0 14 14h77a14 14 0 0 0 14-14V62" stroke="#1683ff" stroke-width="14" stroke-linecap="round"/>
+  <path d="M78 5v31a15 15 0 0 0 15 15h30Z" fill="#a9d4ff"/>
+  <path d="m31 81 23 23 51-51" stroke="#a9d4ff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="148" y="93" font-family="Arial, sans-serif" font-weight="700" font-size="80" letter-spacing="-3"><tspan fill="#ffffff">На</tspan><tspan fill="#87c4ff">Просто</tspan></text>
+  <text x="151" y="128" fill="#b0d6ff" font-family="Arial, sans-serif" font-size="18" letter-spacing="1.4">От документ към действие.</text>
+</svg>

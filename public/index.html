@@ -3,82 +3,311 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f5f7f4" />
-    <meta name="description" content="Разбери ми документа — по-лесен начин да разбереш официалните документи." />
-    <title>Разбери ми документа</title>
+    <meta name="theme-color" content="#073bd7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="НаПросто" />
+    <meta name="description" content="НаПросто — разбери документа, провери сроковете и подреди задачите си." />
+    <title>НаПросто — от документ към действие</title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <script src="/analysis.js" defer></script>
     <script src="/script.js" defer></script>
+    <script src="/app.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#workspace">Към съдържанието</a>
     <header class="topbar">
-      <a class="brand" href="/" aria-label="Разбери ми документа — начало">
-        <span class="brand-mark" aria-hidden="true">Р</span>
-        <span>Разбери ми документа</span>
+      <a class="brand" href="/" aria-label="НаПросто — начало">
+        <span class="brand-word">На<span>П</span>росто<span class="brand-rays" aria-hidden="true">✳</span>
+        </span>
       </a>
-      <span class="project-label">Проект за НОИТ 2027</span>
+      <nav class="main-nav" aria-label="Основна навигация">
+        <a href="#how-title">Как работи</a>
+        <a href="#features-title">Функции</a>
+        <a href="#audience-title">За кого е</a>
+        <a href="#privacy">За данните</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button header-upload" href="#upload-title">Качи документ <span aria-hidden="true">↗</span>
+        </a>
+        <button id="install-app" class="button secondary" type="button" hidden>Инсталирай</button>
+      </div>
     </header>
-
-    <main>
+    <main id="workspace">
       <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> Официалните документи, обяснени просто</p>
-        <h1 id="page-title">По-малко чудене.<br /><span>Повече яснота.</span></h1>
-        <p class="intro">Качи официален документ и лесно открий какво се изисква, кои са важните срокове и какви задачи следват.</p>
-
-        <section class="upload-card" aria-labelledby="upload-title">
-          <div class="card-heading">
-            <div>
-              <p class="step-label">ПЪРВА СТЪПКА</p>
-              <h2 id="upload-title">Избери своя документ</h2>
+        <div class="hero-content">
+          <p class="eyebrow">
+            <span class="eyebrow-dot">
+            </span> Официалните документи, обяснени просто</p>
+          <h1 id="page-title">Опростяваме<br />
+            <span class="underline">сложните</span>
+            <br />документи<span class="title-dot">.</span>
+          </h1>
+          <p class="intro">Качи документ, открий срокове и изисквания и получи обяснение на прост език.</p>
+          <section class="upload-card" aria-labelledby="upload-title">
+            <div class="card-heading">
+              <div>
+                <h2 id="upload-title">Започни с твоя документ</h2>
+              </div>
+              <span class="file-type">PDF · СНИМКА</span>
             </div>
-            <span class="file-type">PDF</span>
+            <label class="dropzone" for="pdf-file" id="dropzone">
+              <span class="upload-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="dropzone-title" id="file-prompt">Качи документ</span>
+              <span class="dropzone-hint">PDF или снимка · до 10 MB</span>
+              <input id="pdf-file" type="file" accept="application/pdf,image/jpeg,image/png,image/webp,.pdf,.jpg,.jpeg,.png,.webp" />
+              <span class="choose-button" aria-hidden="true">↑</span>
+            </label>
+            <div class="capture-row">
+              <label class="camera-button" for="camera-file">
+                <svg class="camera-icon" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l1.5-2h5L16 5h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="12" cy="12.5" r="4"/></svg> Снимай документ<input id="camera-file" class="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" />
+              </label>
+              <span>На поддържан телефон се отваря камерата; на компютър — избор на снимка.</span>
+            </div>
+            <details class="capture-tips">
+              <summary>За по-четлива снимка</summary>
+              <p>Снимай една страница отблизо и право отгоре, на светло и без отблясъци. Побери целия текст в кадъра. Поддържат се JPEG, PNG и WebP до 12 мегапиксела.</p>
+            </details>
+            <p class="file-note" id="upload-help">
+              <span aria-hidden="true">ⓘ</span> Един файл до 10 MB. PDF до 100 страници или една снимка. Без постоянно съхранение.</p>
+            <p id="upload-status" class="upload-status" role="status" aria-live="polite"></p>
+            <button id="cancel-upload" class="button secondary" type="button" hidden>Прекрати обработката</button>
+          </section>
+          <div class="next-step" id="privacy" role="status">
+            <span class="sparkle" aria-hidden="true">✳</span>
+            <p>
+              <strong>Твоят документ остава твой.</strong> Снимките се разчитат на сървъра с OCR. AI анализът се стартира отделно и изпраща извлечения текст към избрания AI доставчик само след твое действие.</p>
           </div>
-
-          <label class="dropzone" for="pdf-file" id="dropzone">
-            <span class="upload-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span class="dropzone-title" id="file-prompt">Пусни PDF файла тук</span>
-            <span class="dropzone-hint">или избери от устройството си</span>
-            <input id="pdf-file" type="file" accept="application/pdf,.pdf" />
-            <span class="choose-button">Избери PDF файл</span>
-          </label>
-          <p class="file-note"><span aria-hidden="true">ⓘ</span> Само PDF файлове. Качването ще бъде добавено на следващ етап.</p>
-        </section>
-
-        <div class="next-step" role="status">
-          <span class="sparkle" aria-hidden="true">✳</span>
-          <p><strong>Това е начална версия.</strong> Истинското качване, анализът с AI и списъкът със задачи предстоят.</p>
+        </div>
+        <div class="hero-art" aria-label="Пример за обобщение на документ">
+          <span class="art-label">ПРИМЕРЕН РЕЗУЛТАТ</span>
+          <div class="sample-paper">
+            <span class="pdf-tag">PDF</span>
+            <h2>Договор<br />за наем</h2>
+            <div class="paper-lines" aria-hidden="true"></div>
+          </div>
+          <div class="floating-card sample-deadlines">
+            <div class="sample-heading">
+              <span class="sample-icon purple">▦</span>
+              <strong>Срокове</strong>
+              <span class="count">2</span>
+            </div>
+            <div class="sample-row">Краен срок <span class="date-pill">20.11.2026</span>
+            </div>
+            <div class="sample-row">Предизвестие <span class="green-pill">30 дни</span>
+            </div>
+          </div>
+          <div class="floating-card sample-requirements">
+            <div class="sample-heading">
+              <span class="sample-icon blue">≡</span>
+              <strong>Изисквания</strong>
+              <span class="count">3</span>
+            </div>
+            <p>
+              <span class="mini-check">✓</span> Необходими документи</p>
+            <p>
+              <span class="mini-check">✓</span> Условия за плащане</p>
+            <p>
+              <span class="mini-check">✓</span> Важни уточнения</p>
+          </div>
+          <div class="floating-card sample-tasks">
+            <div class="sample-heading">
+              <span class="sample-icon purple">✓</span>
+              <strong>Задачи</strong>
+              <span class="count">3</span>
+            </div>
+            <p>
+              <span class="mini-check">✓</span> Подготви документите</p>
+            <p>
+              <span class="mini-box">
+              </span> Провери срока</p>
+            <p>
+              <span class="mini-box">
+              </span> Прегледай условията</p>
+          </div>
+          <svg class="art-arrow" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <path d="M12 12c80-30 22 100 73 65m-20-8 23 6-10 21" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="art-note">Сложните неща<br />вече са прости!</p>
         </div>
       </section>
-
+      <section id="document-results" class="document-results" aria-labelledby="results-title" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">ТЕКСТЪТ ОТ ТВОЯ ДОКУМЕНТ</p>
+          <h2 id="results-title">Извлечен текст</h2>
+          <p id="document-summary"></p>
+        </div>
+        <figure id="photo-preview" hidden>
+          <img id="photo-preview-image" alt="Снимката на твоя документ" />
+          <figcaption>Сравни извлечения текст със снимката. OCR може да сгреши имена, числа и дати.</figcaption>
+        </figure>
+        <div id="extraction-warnings" class="notice" hidden></div>
+        <section id="analysis-actions" class="analysis-actions" aria-labelledby="analysis-action-title" hidden>
+          <h2 id="analysis-action-title">Разбери какво следва</h2>
+          <p id="analysis-availability" role="status">Проверка на настройките за анализ…</p>
+          <label class="consent">
+            <input id="analysis-consent" type="checkbox" />
+            <span id="analysis-consent-label">Разрешавам извлеченият текст да бъде изпратен към избрания AI доставчик за анализ. Услугата може да има разход.</span>
+          </label>
+          <div class="action-buttons">
+            <button id="analyze-document" class="button" type="button" disabled>Анализирай документа</button>
+            <button id="cancel-analysis" class="button secondary" type="button" hidden>Прекрати анализа</button>
+            <button id="refresh-analysis" class="button text-button" type="button">Провери настройките отново</button>
+          </div>
+          <p id="analysis-status" class="upload-status" role="status" aria-live="polite"></p>
+        </section>
+        <details id="extracted-text" class="extracted-text" open>
+          <summary>Прочети извлечения текст по страници</summary>
+          <div id="document-pages"></div>
+        </details>
+      </section>
+      <section id="analysis-results" class="document-results" aria-labelledby="analysis-title" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">ОТ ДОКУМЕНТА КЪМ ДЕЙСТВИЕ</p>
+          <h2 id="analysis-title">Какво се изисква от теб?</h2>
+          <p id="analysis-summary"></p>
+        </div>
+        <div id="analysis-retry" class="notice" hidden>
+          <p>Не успяхме да подготвим пълен отговор. Можеш да изпратиш документа за анализ отново. Това е нова AI заявка и може да има разход.</p>
+          <button id="retry-analysis" class="button" type="button">Опитай анализа отново</button>
+        </div>
+        <section id="analysis-overview" class="page-result" aria-labelledby="overview-title" hidden>
+          <h3 id="overview-title">Накратко</h3>
+          <div id="document-context-summary"></div>
+          <p id="overview-description"></p>
+          <ul id="overview-points"></ul>
+          <h3>Какво изисква внимание?</h3>
+          <p class="task-help">Точките насочват към условия и неясноти в текста. Прочети свързаните цитати в техния контекст.</p>
+          <div id="review-points"></div>
+        </section>
+        <div id="analysis-warnings" class="notice" hidden></div>
+        <details class="coverage-panel">
+          <summary>Кои страници са обработени?</summary>
+          <ul id="analysis-coverage"></ul>
+        </details>
+        <div class="result-toolbar">
+          <button id="export-analysis" class="button secondary" type="button">Изтегли анализа (JSON)</button>
+          <button id="print-analysis" class="button secondary" type="button">Печат / PDF</button>
+        </div>
+        <div class="analysis-layout">
+          <div>
+            <h3>Изисквания, срокове и условия</h3>
+            <div id="analysis-items"></div>
+          </div>
+          <aside class="tasks-panel" aria-labelledby="tasks-title">
+            <h3 id="tasks-title">Моят списък със задачи</h3>
+            <p class="task-help">Избери своята роля. Ще покажем задължителните действия с намерен цитат и без открито противоречие. Първо са задачите с точна дата. Провери условията в документа. Отметките се изчистват при презареждане или затваряне на страницата.</p>
+            <label for="user-role">Моята роля в документа</label>
+            <select id="user-role">
+              <option value="">Избери роля…</option>
+            </select>
+            <p id="role-status" class="task-help" role="status"></p>
+            <p id="tasks-progress" role="status" aria-live="polite"></p>
+            <div id="analysis-tasks"></div>
+            <h4>Не е ясно кой трябва да действа</h4>
+            <div id="unassigned-tasks"></div>
+            <h4>Действия на останалите страни</h4>
+            <p class="task-help">Преди избор на роля тук са всички действия с потвърдена страна.</p>
+            <div id="other-party-tasks"></div>
+          </aside>
+        </div>
+      </section>
       <section class="how-it-works" aria-labelledby="how-title">
         <div class="section-heading">
           <p class="eyebrow">ЯСНО И ПОДРЕДЕНО</p>
-          <h2 id="how-title">Как ще работи?</h2>
+          <h2 id="how-title">Как работи?</h2>
         </div>
         <div class="steps">
           <article class="step-card">
             <span class="step-number">01</span>
             <span class="step-icon" aria-hidden="true">↥</span>
-            <h3>Добавяш документ</h3>
-            <p>Избираш официален PDF файл от устройството си.</p>
+            <h3>Качи документ</h3>
+            <p>Избираш PDF или снимаш една страница с телефона си.</p>
           </article>
           <article class="step-card">
             <span class="step-number">02</span>
             <span class="step-icon" aria-hidden="true">⌕</span>
-            <h3>Намираме важното</h3>
+            <h3>Разбери съдържанието</h3>
             <p>Откриваме изискванията, сроковете и ключовите условия.</p>
           </article>
           <article class="step-card">
             <span class="step-number">03</span>
             <span class="step-icon" aria-hidden="true">✓</span>
-            <h3>Получаваш план</h3>
+            <h3>Получи задачи</h3>
             <p>Виждаш обяснение на разбираем език и ясни следващи задачи.</p>
           </article>
         </div>
       </section>
+      <section class="info-section" aria-labelledby="features-title">
+        <p class="eyebrow">ВАЖНОТО НА ЕДНО МЯСТО</p>
+        <h2 id="features-title">По-малко сложни думи.<br />Повече яснота.</h2>
+        <div class="info-grid">
+          <article>
+            <span>01 / РАЗБИРАНЕ</span>
+            <h3>Обяснение на прост език</h3>
+            <p>Виж за какво е документът и кои условия заслужават внимание.</p>
+          </article>
+          <article>
+            <span>02 / ПРОВЕРКА</span>
+            <h3>Връзка с оригинала</h3>
+            <p>Отвори цитата и страницата, за да провериш всяко важно обяснение.</p>
+          </article>
+          <article>
+            <span>03 / ДЕЙСТВИЕ</span>
+            <h3>Задачи според твоята роля</h3>
+            <p>Разграничи своите действия от задълженията на останалите страни.</p>
+          </article>
+        </div>
+      </section>
+      <section class="audience-section" aria-labelledby="audience-title">
+        <div>
+          <p class="eyebrow">ЗА РЕАЛНИТЕ НЕЩА ОТ ЖИВОТА</p>
+          <h2 id="audience-title">За всеки, който иска<br />да разбира какво пише.</h2>
+          <p>Документите са част от ежедневието. Но дългите изречения, непознатите думи и скритите сред текста срокове могат да объркат всеки. НаПросто ти помага да откриеш важното и да разбереш откъде да започнеш.</p>
+          <div class="audience-examples">
+            <article><h3>Кандидатстваш или учиш?</h3><p>Прегледай условията, необходимите документи и сроковете за подаване на заявление.</p></article>
+            <article><h3>Предстои ти договор?</h3><p>Открий описаните задължения, плащания и важни условия. Върни се към точния цитат, когато нещо не е ясно.</p></article>
+            <article><h3>Получаваш официално писмо?</h3><p>Разбери какво се иска от теб и кои действия трябва да провериш, преди да отговориш.</p></article>
+          </div>
+          <p>Не е нужно да познаваш всеки термин. Започни с PDF или снимка, прочети обяснението и провери оригинала. Ти решаваш как да продължиш.</p>
+          <a class="button" href="#upload-title">Да го направим просто <span aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="social-panel" aria-labelledby="social-title">
+          <span class="social-mark" aria-hidden="true">↗</span>
+          <p class="eyebrow">ОЩЕ ОТ НАПРОСТО</p>
+          <h3 id="social-title">Сложните неща.<br />В кратък формат.</h3>
+          <p>Тук ще споделяме съвети за работа с документи, примери и новини за проекта.</p>
+          <a class="social-placeholder" href="https://www.tiktok.com/@naprosto_documents" target="_blank" rel="noopener noreferrer" aria-label="НаПросто в TikTok — отваря се в нов раздел"><span class="social-symbol" aria-hidden="true">♪</span><div><strong>TikTok</strong><span>@naprosto_documents ↗</span></div></a>
+          <a class="social-placeholder" href="https://www.instagram.com/naprosto_documents/" target="_blank" rel="noopener noreferrer" aria-label="НаПросто в Instagram — отваря се в нов раздел"><span class="social-symbol" aria-hidden="true">◎</span><div><strong>Instagram</strong><span>@naprosto_documents ↗</span></div></a>
+        </aside>
+      </section>
     </main>
-
-    <footer><span>Разбери ми документа</span><span>Създадено за НОИТ 2027</span></footer>
+    <footer>
+      <span>НаПросто</span>
+      <span>От документ към действие.</span>
+    </footer>
+    <p id="connection-status" class="connection-status" role="status" hidden></p>
+    <dialog id="print-options" aria-labelledby="print-options-title">
+      <h2 id="print-options-title">Какво да включим?</h2>
+      <p>Подготви кратък отчет за печат или запазване като PDF.</p>
+      <label class="print-choice"><input id="print-summary-option" type="checkbox" checked /> Обобщение</label>
+      <label class="print-choice"><input id="print-tasks-option" type="checkbox" checked /> Задачи за избраната роля</label>
+      <label class="print-choice"><input id="print-quotes-option" type="checkbox" /> Оригинални цитати</label>
+      <p id="print-options-status" role="status" aria-live="polite"></p>
+      <p class="task-help">Статусът и предупрежденията се включват винаги. За PDF избери „Запази като PDF“ в прозореца на браузъра.</p>
+      <div class="action-buttons"><button id="confirm-print" class="button" type="button">Продължи към печат</button><button id="cancel-print" class="button secondary" type="button">Отказ</button></div>
+    </dialog>
+    <section id="print-report" aria-label="Отчет за печат" hidden></section>
   </body>
 </html>
