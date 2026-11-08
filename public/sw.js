@@ -1,4 +1,4 @@
-const CACHE = 'razberi-shell-v24';
+const CACHE = 'razberi-shell-v25';
 const ASSETS = ['/', '/index.html', '/styles.css', '/script.js', '/analysis.js', '/app.js',
   '/manifest.webmanifest', '/icon.svg', '/icons/favicon-32.png', '/branding/naprosto-logo-transparent.svg', '/icons/icon-180.png', '/icons/icon-192.png', '/icons/icon-512.png'];
 const ALLOWED = new Set(ASSETS);

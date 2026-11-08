@@ -166,7 +166,6 @@
       getElement('analyze-document').disabled = checking || busy || externalBusy || !available || !getElement('analysis-consent').checked || !getFile();
       getElement('retry-analysis').disabled = getElement('analyze-document').disabled;
       getElement('analysis-consent').disabled = checking || busy || externalBusy || !available;
-      getElement('refresh-analysis').disabled = checking || busy || externalBusy;
     }
     async function refreshCapabilities() {
       if (checking) {
@@ -197,12 +196,12 @@
             : `AI анализът е активен. Ще изпратим текста към ${provider} след потвърждението ти.`;
         getElement('analysis-consent-label').textContent = mode === 'mock'
           ? 'Разбирам, че това е демонстрация с mock отговори, а не истински анализ.'
-          : `Разрешавам извлеченият текст да бъде изпратен към ${provider} за анализ. Услугата може да има разход.`;
+          : `Разрешавам извлеченият текст да бъде изпратен към ${provider} за анализ.`;
       } catch (error) {
         available = false;
         getElement('analysis-consent').checked = false;
         const messages = {
-          OLD_SERVER: 'Работи стара версия на сървъра. Спри я с Ctrl+C, стартирай npm.cmd start и натисни „Провери настройките отново“.',
+          OLD_SERVER: 'Работи стара версия на сървъра. Спри я с Ctrl+C, стартирай npm.cmd start и презареди страницата.',
           SERVER_UNAVAILABLE: 'Сървърът отговори с грешка при проверката на настройките. Опитай отново след малко.',
           INVALID_CAPABILITIES: 'Сървърът върна непознат отговор за настройките. Рестартирай го с npm.cmd start и провери отново.',
         };
@@ -385,7 +384,6 @@
     getElement('analyze-document').addEventListener('click', run);
     getElement('retry-analysis').addEventListener('click', run);
     getElement('cancel-analysis').addEventListener('click', () => controller?.abort());
-    getElement('refresh-analysis').addEventListener('click', refreshCapabilities);
     getElement('print-analysis').addEventListener('click', openPrintOptions);
     getElement('export-analysis').addEventListener('click', () => {
       if (!savedResult) return;
@@ -424,7 +422,7 @@
       fileReady() {
         getElement('analysis-actions').hidden = false;
         updateButton();
-        if (!available && !checking) refreshCapabilities();
+        if (!checking) return refreshCapabilities();
       },
     };
   }

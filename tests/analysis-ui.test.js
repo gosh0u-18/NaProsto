@@ -209,7 +209,7 @@ test('analysis UI: an old server returning 404 is distinguished from a network f
   assert.ok(!$('analysis-availability').textContent.includes('Няма връзка'));
 });
 
-test('analysis UI: refresh after server restart enables consent and then analysis', async () => {
+test('analysis UI: uploading after server restart refreshes capabilities and enables consent', async () => {
   let old = true;
   const { $, ui } = setup(async () => old ? { ok: false, status: 404 } : ({
     ok: true, json: async () => ({ analysis: { enabled: true, mode: 'gemini' } }),
@@ -217,7 +217,7 @@ test('analysis UI: refresh after server restart enables consent and then analysi
   await ui.ready;
   assert.equal($('analysis-consent').disabled, true);
   old = false;
-  await $('refresh-analysis').click();
+  await ui.fileReady();
   assert.equal($('analysis-consent').disabled, false);
   assert.equal($('analyze-document').disabled, true);
   $('analysis-consent').checked = true;
@@ -313,7 +313,7 @@ test('analysis UI: changing from mock to paid AI requires fresh consent', async 
   await ui.ready;
   $('analysis-consent').checked = true;
   mode = 'openai';
-  await $('refresh-analysis').click();
+  await ui.fileReady();
   assert.equal($('analysis-consent').checked, false);
   assert.equal($('analyze-document').disabled, true);
 });
